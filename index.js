@@ -67,8 +67,7 @@ inquirer.prompt([
     });
     var generateHTML = `
     <!DOCTYPE html>
-    <style>
-    </style>
+   
     <html lang="en">
     <head>
       <meta charset="UTF-8">
@@ -79,7 +78,67 @@ inquirer.prompt([
       <script src="https://code.jquery.com/jquery.js"></script>
     
       <title>HW9</title>
+      <style>
+  
+      html, body {
+        -webkit-print-color-adjust:exact !important; 
+      }
+      .color-blue {
+        background-color: #00BFFF;
+        
+      }
+    
+      .color-green {
+        background-color: #006400;
+        -webkit-print-color-adjust:exact !important;
+    
+      }
+    
+      .color-pink {
+        background-color: #FFB6C1;
+        -webkit-print-color-adjust:exact !important;
+    
+      }
+      .color-purple {
+        background-color: #9370DB;
+        -webkit-print-color-adjust:exact !important;
+      }
+      .links {
+        text-align: center; 
+      }
+      span {
+          padding: 20px; 
+      }
+      #bio {
+        text-align: center; 
+      }
+      nav {
+        height: 5em;
+      }
+        
+      .circular--square {
+        border-radius: 50%;
+        display: block;
+        margin: 0 auto;
+        position: relative;
+        width: 10em;
+        height: 10em; 
+      }
+      h1 {
+        text-align: center;
+      }
       
+      .col{
+        padding: 1em;
+        margin: 1em;
+      }
+      
+      .img-fluid, .img-thumbnail {
+        max-width: 100%;
+        height: auto;
+      } 
+      
+    </style>
     </head>
     <body>
       <nav class="navbar navbar-light bg-light">
@@ -122,65 +181,6 @@ inquirer.prompt([
     </div>    
     </div>
       </div>
-    
-      <style>
-      .color-blue {
-        color: "#00BFFF";
-        -webkit-print-color-adjust:exact !important;
-
-      }
-    
-      .color-green: {
-        color: "#006400";
-        -webkit-print-color-adjust:exact !important;
-
-          },
-
-      .color-pink: {
-        color: "#FFB6C1";
-        -webkit-print-color-adjust:exact !important;
-
-          },
-      .color-purple: {
-        color: "#9370DB";
-        -webkit-print-color-adjust:exact !important;
-        }
-      .links{
-          text-align: center; 
-      }
-      span{
-          padding: 20px; 
-        }
-        #bio{
-          text-align: center; 
-        }
-      nav {
-        height: 5em;
-        }
-        
-        .circular--square {
-          border-radius: 50%;
-          display: block;
-          margin: 0 auto;
-          position: relative;
-          width: 10em;
-          height: 10em; 
-        }
-        h1 {
-          text-align: center;
-        }
-        
-        .col{
-          padding: 1em;
-          margin: 1em;
-        }
-        
-        .img-fluid, .img-thumbnail {
-          max-width: 100%;
-          height: auto;
-        }
-  
-    </style>
     `
     conversion({ html: generateHTML}, function(err, result) {
         console.log("num of pages ", result.numberOfPages)

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+   
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery.js"></script>
+
+  <title>HW9</title>
+  <style>
+
+  @media print {
+    /* -webkit-print-color-adjust:exact !important;  */
+  html, body {
+    -webkit-print-color-adjust:exact !important; 
+  }
+  .color-blue {
+    background-color: #00BFFF;
+    
+  }
+
+  .color-green {
+    background-color: #006400;
+    -webkit-print-color-adjust:exact !important;
+
+  }
+
+  .color-pink {
+    background-color: #FFB6C1;
+    -webkit-print-color-adjust:exact !important;
+
+  }
+  .color-purple {
+    background-color: #9370DB;
+    -webkit-print-color-adjust:exact !important;
+  }
+  .links {
+    text-align: center; 
+  }
+  span {
+      padding: 20px; 
+  }
+  #bio {
+    text-align: center; 
+  }
+  nav {
+    height: 5em;
+  }
+    
+  .circular--square {
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    width: 10em;
+    height: 10em; 
+  }
+  h1 {
+    text-align: center;
+  }
+  
+  .col{
+    padding: 1em;
+    margin: 1em;
+  }
+  
+  .img-fluid, .img-thumbnail {
+    max-width: 100%;
+    height: auto;
+  } 
+  .dumbdiv {
+    background-color: black;
+  }
+}
+</style>
+</head>
+<body>
+  <div class="dumbdiv">I'm so cool</div>
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+  </nav>
+  <div class="container-fluid color-green">
+    <img class= "center circular--square" src="${profImage}" class="rounded mx-auto d-block" alt="GitHub Profile Image">
+    <h1>Hi! ${name}</h1>
+    <p id= "bio">${bio}</p>
+    <div class = "container links">
+    <span><a href="https://maps.google.com/?q=${location}">${location}</a></span> <span><a href="${userPage}">GitHub</a></span>
+    <span><a href="${blog}">Blog</a></span>
+  </div>
+  </div>
+  <div class="container">
+    <div class="row row-cols-2">
+      <div class="col card text-white mb-3" style="max-width: 25rem;">
+        <div class="card-body color-green">
+          <h5 class="card-title">Public Repositories</h5>
+          <p class="card-text"> ${repos}</p>
+      </div>
+    </div>
+    <div class="col card text-white color-green mb-3" style="max-width: 25rem;">
+      <div class="card-body color-green">
+        <h5 class="card-title">Followers</h5>
+        <p id= "followers" class="card-text">${followers}</p>
+    </div>
+  </div>
+  <div class="col card text-white color-green mb-3" style="max-width: 25rem;">
+    <div class="card-body">
+      <h5 class="card-title">GitHub Stars</h5>
+      <p id = "stars" class="card-text">${starCount}</p>
+  </div>
+</div>
+<div class="col card text-white color-green mb-3" style="max-width: 25rem;">
+  <div class="card-body">
+    <h5 class="card-title">Following</h5>
+    <p class="card-text">${following}</p>
+</div>
+</div>    
+</div>
+  </div>
