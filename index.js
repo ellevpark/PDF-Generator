@@ -7,19 +7,6 @@ var conversion = convertFactory({
 });
 const path = require("path");
 
-
-// ​var username = ""; 
-// var name = ""; 
-// var profImage= ""; 
-// var bio= ""; 
-// var location= ""; 
-// var blog = ""; 
-// var favColor = ""; 
-// var followers = ""; 
-// var following = ""; 
-// var repo= ""; 
-// var userSite= "";
-// var stars= "";
 inquirer.prompt([
   {
       type: "input",
@@ -51,21 +38,19 @@ inquirer.prompt([
     repos = res.data.public_repos;
     userPage = res.data.html_url;
     starCount = 0;
-    // stars = ???? SEPARATE API CALL?? 
 
     axios.get("https://api.github.com/users/ellevpark/repos").catch(function(error){
       console.log("BOO! ERROR")
     })
-    .then(function(repos){
+    .then(function(stars){
      
-    var repos = repos.data;
+    var starArr = stars.data;
     var starCount = 0;
-      repos.forEach(repo => {
-          starCount += repo.stargazers_count;
+      starArr.forEach(stars => {
+          starCount += stars.stargazers_count;
         });
         console.log (starCount)
-    });
-    var generateHTML = `
+        var generateHTML = `
     <!DOCTYPE html>
    
     <html lang="en">
@@ -164,13 +149,13 @@ inquirer.prompt([
         <div class="col card text-white color-${favColor} mb-3" style="max-width: 25rem;">
           <div class="card-body">
             <h5 class="card-title">Followers</h5>
-            <p id= "followers" class="card-text">${followers}</p>
+            <p class="card-text">${followers}</p>
         </div>
       </div>
       <div class="col card text-white color-${favColor} mb-3" style="max-width: 25rem;">
         <div class="card-body">
           <h5 class="card-title">GitHub Stars</h5>
-          <p id = "stars" class="card-text">${starCount}</p>
+          <p class="card-text">${starCount}</p>
       </div>
     </div>
     <div class="col card text-white color-${favColor} mb-3" style="max-width: 25rem;">
@@ -192,5 +177,7 @@ inquirer.prompt([
       conversion.kill()
       })
     
-  })
-})
+    });
+  });
+    
+});
